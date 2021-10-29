@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.scss";
 
-export default function List() {
+export default function List({ list }) {
     const [slideNumber, setSlideNumber] = useState(0);
     const [isMoved, setIsMoved] = useState(false);
     const listRef = useRef();
@@ -22,7 +22,7 @@ export default function List() {
     };
     return (
         <div className="list">
-            <span className="listTitle">Continue to watch</span>
+            <span className="listTitle">{list.title}</span>
             <div className="wrapper">
                 <ArrowBackIosOutlined
                     className="sliderArrow left"
@@ -30,16 +30,9 @@ export default function List() {
                     style={{ display: !isMoved && "none" }}
                 />
                 <div className="container" ref={listRef}>
-                    <ListItem index={0} />
-                    <ListItem index={1} />
-                    <ListItem index={2} />
-                    <ListItem index={3} />
-                    <ListItem index={4} />
-                    <ListItem index={5} />
-                    <ListItem index={6} />
-                    <ListItem index={7} />
-                    <ListItem index={8} />
-                    <ListItem index={9} />
+                    {list.content.map((item, i) => (
+                        <ListItem index={i} item={item} key={i} />
+                    ))}
                 </div>
                 <ArrowForwardIosOutlined className="sliderArrow right" onClick={() => handleClick("right")} />
             </div>

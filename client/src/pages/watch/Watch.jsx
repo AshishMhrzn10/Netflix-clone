@@ -1,19 +1,25 @@
 import "./watch.scss";
 import { ArrowBackOutlined } from "@material-ui/icons";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Watch() {
+    const location = useLocation();
+    const movie = location.movie;
     return (
         <div className="watch">
-            <div className="back">
-                <ArrowBackOutlined />
-                Home
-            </div>
+            <Link to="/">
+                <div className="back">
+                    <ArrowBackOutlined />
+                    Home
+                </div>
+            </Link>
             <video
                 className="video"
                 autoPlay
                 progress
                 controls
-                src="https://static.videezy.com/system/resources/previews/000/021/576/original/drone-follows-parachute-boat-4K.mp4"
+                src={movie.video}
             />
         </div>
     );
