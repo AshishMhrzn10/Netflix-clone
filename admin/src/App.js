@@ -13,6 +13,7 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "./context/authContext/AuthContext";
+import ListList from "./pages/listList/ListList";
 
 
 function App() {
@@ -49,6 +50,15 @@ function App() {
               <Route path="/newProduct">
                 <NewProduct />
               </Route>
+              <Route path="/lists">
+                <ListList />
+              </Route>
+              {/* <Route path="/list/:listId">
+                <Product />
+              </Route>
+              <Route path="/newList">
+                <NewProduct />
+              </Route> */}
             </div>
           </>
         }
