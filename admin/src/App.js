@@ -10,6 +10,8 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
+import List from "./pages/list/List";
+import NewList from "./pages/newList/NewList";
 import { useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -53,12 +55,12 @@ function App() {
               <Route path="/lists">
                 <ListList />
               </Route>
-              {/* <Route path="/list/:listId">
-                <Product />
+              <Route path="/list/:listId">
+                <List />
               </Route>
               <Route path="/newList">
-                <NewProduct />
-              </Route> */}
+                <NewList />
+              </Route>
             </div>
           </>
         }

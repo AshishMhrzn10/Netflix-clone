@@ -4,7 +4,8 @@ import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { ListContext } from "../../context/listContext/ListContext";
-import { getLists, deleteList } from "../../context/listContext/apiCalls";
+import { deleteList, getLists } from "../../context/listContext/apiCalls";
+
 
 export default function ListList() {
     const { lists, dispatch } = useContext(ListContext);
@@ -30,7 +31,7 @@ export default function ListList() {
                 return (
                     <>
                         <Link
-                            to={{ pathname: "/list/" + params.row._id, movie: params.row }}
+                            to={{ pathname: "/list/" + params.row._id, list: params.row }}
                         >
                             <button className="productListEdit">Edit</button>
                         </Link>
@@ -57,4 +58,3 @@ export default function ListList() {
         </div>
     );
 }
-

@@ -5,7 +5,10 @@ import {
     getListsFailure,
     deleteListStart,
     deleteListSuccess,
-    deleteListFailure
+    deleteListFailure,
+    createListStart,
+    createListSuccess,
+    createListFailure
 } from "./ListActions";
 
 export const getLists = async (dispatch) => {
@@ -22,20 +25,20 @@ export const getLists = async (dispatch) => {
     }
 };
 
-// //CREATE
-// export const createMovie = async (movie, dispatch) => {
-//     dispatch(createMovieStart());
-//     try {
-//         const res = await axios.post("/movies", movie,
-//             {
-//                 headers: { token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken }
-//             });
-//         dispatch(createMovieSuccess(res.data));
-//     }
-//     catch (err) {
-//         dispatch(createMovieFailure());
-//     }
-// };
+//CREATE
+export const createList = async (list, dispatch) => {
+    dispatch(createListStart());
+    try {
+        const res = await axios.post("/lists", list,
+            {
+                headers: { token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken }
+            });
+        dispatch(createListSuccess(res.data));
+    }
+    catch (err) {
+        dispatch(createListFailure());
+    }
+};
 
 //DELETE
 export const deleteList = async (id, dispatch) => {

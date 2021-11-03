@@ -46,7 +46,7 @@ export default function Product() {
             <div className="productBottom">
                 <form className="productForm">
                     <div className="productFormLeft">
-                        <label>{movie.title}</label>
+                        <label>Title</label>
                         <input type="text" placeholder={movie.title} />
                         <label>Year</label>
                         <input type="text" placeholder={movie.year} />
