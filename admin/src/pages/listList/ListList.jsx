@@ -16,6 +16,7 @@ export default function ListList() {
 
     const handleDelete = (id) => {
         deleteList(id, dispatch);
+        window.location.reload();
     };
 
     const columns = [
