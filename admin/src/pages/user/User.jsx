@@ -16,7 +16,7 @@ export default function User() {
     let id = useParams();
     useEffect(() => {
         getUser(id.userId, dispatch);
-    }, [dispatch]);
+    }, [id.userId, dispatch]);
 
     const handleChange = (e) => {
         const value = e.target.value;

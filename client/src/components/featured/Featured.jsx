@@ -12,7 +12,7 @@ export default function Featured({ type, setGenre }) {
                 const res = await axios.get(`/movies/random?type=${type}`,
                     {
                         headers: {
-                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2E0M2E2ZjcyNzU0YmUyYWI5Y2M1OSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzNTUyMjY2NCwiZXhwIjoxNjM1OTU0NjY0fQ.VK_jNiBK-BkwSFrBcTDwke4a7nEN0EvU-kQoJMe5S6Y"
+                            token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
                         }
                     });
                 setContent(res.data[0]);
@@ -26,7 +26,7 @@ export default function Featured({ type, setGenre }) {
         <div className="featured">
             {type && (
                 <div className="category">
-                    <span>{type === "movies" ? "Movies" : "Series"}</span>
+                    <span>{type === "movie" ? "Movies" : "Series"}</span>
                     <select name="genre" id="genre" onChange={e => setGenre(e.target.value)}>
                         <option>Genre</option>
                         <option value="adventure">Adventure</option>
