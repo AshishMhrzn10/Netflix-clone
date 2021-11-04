@@ -27,7 +27,7 @@ const App = () => {
         {user ? (
           <>
             <Route path="/movies">
-              <Home type="movies" />
+              <Home type="movie" />
             </Route>
             <Route path="/series">
               <Home type="series" />
